@@ -1,13 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Стартовый шаблон</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Online store of handmade jewelry">
+    <title>Jewellery</title>
+    <link rel="preload" href="fonts/poppins-v15-latin-500.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="fonts/poppins-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="fonts/poppins-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="fonts/cormorant-garamond-v9-latin-600.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="fonts/cormorant-garamond-v9-latin-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="fonts/cormorant-garamond-v9-latin-italic.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
 <body>
-  <h1>Добро пожаловать в Лигу А.</h1>
+  <header class="page-header page-header--closed page-header--nojs">
+    <div class="page-header__wrapper">
+      <div class="page-header__logo-wrapper">
+        <button class="page-header__toggle" type="button">
+          <span class="visually-hidden">Open/Close menu</span>
+        </button>
+        <form class="page-header__form form form--search" method="GET" action="index.html">
+          <label for="search" aria-label="search">
+            <svg width="14" height="14">
+              <use xlink:href="img/sprite_auto.svg#icon-search"></use>
+            </svg>
+          </label>
+          <input type="search" id="search" name="search" placeholder="Type here to search">
+        </form>
+        <a class="page-header__logo" aria-label="Логотип интернет-магазина Jewellery">
+          <svg width="66" height="66">
+            <use xlink:href="img/sprite_auto.svg#icon-logo"></use>
+          </svg>
+        </a>
+        <div class="page-header__cart">
+          <a class="page-header__login modal-open modal-open--login" href="login.html">Login</a>
+          <a class="modal-open modal-open--cart" href="cart.html">
+            <span> Cart <span>0</span> </span>
+            <svg width="18" height="16">
+              <use xlink:href="img/sprite_auto.svg#icon-cart"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <nav class="page-header__nav">
+        <ul class="page-header__site-menu">
+          <li>
+            <a href="catalog.html">What’s new</a>
+          </li>
+          <li>
+            <a href="catalog.html">Chokers</a>
+          </li>
+          <li>
+            <a href="catalog.html">Necklaces</a>
+          </li>
+          <li>
+            <a href="catalog.html">Rings</a>
+          </li>
+          <li>
+            <a href="catalog.html">Earrings</a>
+          </li>
+        </ul>
+
+        <ul class="page-header__site-menu page-header__site-menu--about">
+          <li>
+            <a href="#">About CH</a>
+          </li>
+          <li>
+            <a href="#">Stores & Hours</a>
+          </li>
+          <li>
+            <a href="#">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 </body>
 </html>
+

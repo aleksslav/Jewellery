@@ -1,0 +1,38 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  min-width: $mobile-width;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+
+  font-family: $font-basic;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 500;
+  font-style: normal;
+  text-align: left;
+  color: $basic-zeus;
+  background-color: $basic-white;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
