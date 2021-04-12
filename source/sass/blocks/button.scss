@@ -1,0 +1,41 @@
+.button {
+  font-family: $font-basic;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 500;
+  width: 100%;
+  min-height: 68px;
+  margin-bottom: 25px;
+  color: $basic-zeus;
+  border: 1px solid $basic-muesli;
+  cursor: pointer;
+
+  &--brown {
+    color: $basic-white;
+    background-color: $basic-muesli;
+
+    &:hover,
+    &:focus {
+      color: $basic-zeus;
+      background-color: $basic-white;
+      outline-color: $basic-muesli;
+    }
+  }
+
+  &--white {
+    background-color: $basic-white;
+
+    &:hover,
+    &:focus {
+      color: $basic-white;
+      background-color: $basic-muesli;
+      outline-color: $basic-zeus;
+    }
+  }
+
+  &:active {
+    color: $basic-white;
+    background-color: $basic-white;
+    outline-color: $basic-muesli;
+  }
+}

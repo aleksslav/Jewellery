@@ -1,0 +1,246 @@
+.cart {
+  width: 500px;
+  margin: 30px auto 0;
+  box-shadow: 0 4px 32px rgba(121, 121, 121, 0.24);
+  background-color: $basic-white;
+
+  @media (max-width: $mobile-width-only) {
+    width: 290px;
+    margin: 117px auto 0;
+  }
+}
+
+.cart__wrapper {
+  position: relative;
+  padding: 45px 35px 30px;
+
+  @media (max-width: $tablet-width-only) {
+    padding: 45px 30px 30px;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    padding: 40px 14px 25px 16px;
+  }
+
+  h2 {
+    @include reset-list;
+    margin: 0 0 39px 0;
+    font-family: $font-special;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 34px;
+    text-align: center;
+    color: $basic-zeus;
+
+    @media (max-width: $mobile-width-only) {
+      font-size: 24px;
+      line-height: 28px;
+      margin: 0 34px 26px 35px;
+    }
+  }
+}
+
+.cart__picture {
+  margin-bottom: 53px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (max-width: $mobile-width-only) {
+    margin-bottom: 30px;
+  }
+
+  img {
+    padding-top: 7px;
+
+    @media (max-width: $mobile-width-only) {
+      width: 70px;
+    }
+  }
+}
+
+.cart__picture-title {
+  margin-right: auto;
+  padding: 3px 0 0 21px;
+
+  @media (max-width: $tablet-width-only) {
+    padding: 3px 0 0 23px;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    padding: 4px 0 0 14px;
+  }
+
+  h2 {
+    @include reset-list;
+    margin: 0 0 8px 0;
+    font-family: $font-special;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: left;
+    color: $basic-zeus;
+
+    @media (max-width: $mobile-width-only) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  p {
+    @include reset-list;
+    font-family: $font-basic;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: $basic-zeus;
+
+    @media (max-width: $mobile-width-only) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}
+
+.cart__picture-counter {
+  max-width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  input {
+    padding-top: 13px;
+    font-size: 18px;
+    line-height: 23px;
+    width: 100%;
+    text-align: right;
+    font-family: $font-basic;
+    font-weight: 400;
+    color: $basic-zeus;
+    border: none;
+    background-color: transparent;
+    outline-color: transparent;
+
+    @media (max-width: $tablet-width-only) {
+      padding: 20px 5px 0 0;
+    }
+  }
+}
+
+.cart__count-button {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 2px;
+    width: 100%;
+    height: 2px;
+    background-color: $basic-bawn;
+
+    @media (max-width: $tablet-width-only) {
+      top: 15px;
+    }
+  }
+
+  &--plus::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 9px;
+    width: 2px;
+    height: 100%;
+    background-color: $basic-bawn;
+
+    @media (max-width: $tablet-width-only) {
+      top: 9px;
+    }
+  }
+
+  &--minus {
+    margin-bottom: 17px;
+
+    @media (max-width: $mobile-width-only) {
+      top: -7px;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline-color: $basic-muesli;
+  }
+
+  &:hover::before,
+  &:hover::after,
+  &:focus::before,
+  &:focus::after {
+    background-color: $basic-muesli;
+  }
+
+  &:active::before,
+  &:active::after {
+    background-color: $basic-pearl-bush;
+  }
+}
+
+.cart__description {
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: $mobile-width-only) {
+    margin-bottom: 32px;
+    flex-direction: column;
+  }
+
+  p {
+    @include reset-list;
+    font-family: $font-basic;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+
+    &:last-child {
+      font-weight: 500;
+
+      @media (max-width: $mobile-width-only) {
+        margin: 13px 0 0 0;
+      }
+    }
+
+    @media (max-width: $mobile-width-only) {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+}
+
+.cart__links {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: $mobile-width-only) {
+    flex-direction: column;
+  }
+}
+
+.cart__link {
+  width: 46.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  @media (max-width: $mobile-width-only) {
+    width: 100%;
+    margin-bottom: 21px;
+  }
+}

@@ -1,0 +1,60 @@
+.modal {
+  z-index: 1;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.1);
+
+  &--nojs {
+    display: block;
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 14px;
+  height: 14px;
+  display: block;
+  border: none;
+  background-color: transparent;
+  background-image: url("../img/icon-close.svg");
+  background-repeat: no-repeat;
+
+  @media (max-width: $tablet-width-only) {
+    width: 20px;
+    height: 20px;
+
+    &--cart {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  @media (max-width: $mobile-width-only) {
+    top: 12px;
+    right: 15px;
+    width: 14px;
+    height: 14px;
+
+    &--cart {
+      top: 16px;
+    }
+  }
+}
+
+.modal-show {
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 5px 10px rgba(0, 1, 1, 0.25);
+  display: block;
+}
+
+.modal-open {
+  &--cart {
+    span {
+      margin-left: 3px;
+    }
+  }
+}

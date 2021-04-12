@@ -1,0 +1,130 @@
+.catalog {
+  position: relative;
+  font-family: $font-basic;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 500;
+  color: $basic-black;
+  background-color: $basic-white;
+}
+
+.catalog__main-wrapper {
+  @include wrapper;
+  padding: 80px 7.2% 0;
+  display: grid;
+  grid-template-columns: 21.38% 74.36%;
+  grid-template-rows: 0.9fr 0.1fr;
+  gap: 20px 50px;
+  grid-template-areas:
+    "catalog__form catalog__list"
+    "catalog__form catalog__pagination";
+
+  @media (max-width: $tablet-width-only) {
+    display: flex;
+    flex-direction: column;
+    padding: 49px 5.8% 53px 5.8%;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    padding: 40px 4.3% 53px 4.3%;
+  }
+}
+
+.catalog__form {
+  grid-area: catalog__form;
+
+  @media (max-width: $tablet-width-only) {
+    display: none;
+  }
+}
+
+.catalog__pagination {
+  grid-area: catalog__pagination;
+}
+
+.catalog__list {
+  @include reset-list;
+  grid-area: catalog__list;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 34px 28px;
+
+  @media (max-width: $mobile-width-only) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 25px 30px;
+  }
+}
+
+.catalog__item {
+  text-align: center;
+
+  a {
+    h3 {
+      @include reset-list;
+      margin: 17px 0 5px 0;
+      font-family: $font-basic;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 500;
+      text-align: center;
+      color: $basic-zeus;
+
+      @media (max-width: $mobile-width-only) {
+        margin: 11px 0 6px;
+      }
+    }
+
+    p {
+      @include reset-list;
+      font-family: $font-basic;
+      font-size: 16px;
+      line-height: 21px;
+      font-weight: 500;
+      text-align: center;
+      color: $basic-zeus;
+    }
+
+    img {
+      @media (min-width: 340px) and (max-width: 767px) {
+        height: auto;
+      }
+
+      @media (min-width: 320px) and (max-width: 340px) {
+        height: 136px;
+      }
+    }
+  }
+
+  &:nth-child(-n+3) {
+    a {
+      h3 {
+        margin: 17px 0 5px 7px;
+
+        @media (max-width: $tablet-width-only) {
+          margin: 17px 0 5px 0;
+        }
+
+        @media (max-width: $mobile-width-only) {
+          margin: 11px 0 6px;
+        }
+      }
+    }
+  }
+}
+
+.catalog__filter-button {
+  display: none;
+
+  @media (max-width: $tablet-width-only) {
+    display: block;
+    margin-bottom: 27px;
+    text-align: center;
+    padding-top: 23px;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    margin-bottom: 20px;
+  }
+}

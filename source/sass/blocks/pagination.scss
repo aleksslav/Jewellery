@@ -1,0 +1,155 @@
+.pagination {
+  position: relative;
+  text-align: center;
+  padding: 53px 0 20px 0;
+
+  @media (max-width: $tablet-width-only) {
+    padding: 40px 0 20px 0;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    padding: 33px 0 20px 0;
+  }
+}
+
+.pagination__list {
+  @include reset-list;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pagination__item {
+  margin: 0 5px 0 7px;
+  display: none;
+
+  &:nth-child(-n+4) {
+    display: block;
+  }
+
+  &--mobile {
+    margin: 0;
+
+    span {
+      display: none;
+    }
+  }
+
+  a {
+    font-family: $font-basic;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 500;
+    color: $basic-bawn;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+  }
+
+  &--active {
+    a {
+      color: $basic-black;
+    }
+  }
+
+  @media (max-width: $tablet-width-only) {
+    margin: 2px 7px 0 6px;
+
+    &:nth-child(-n+7) {
+      display: block;
+    }
+
+    &--mobile {
+      margin: 0;
+
+      span {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: $mobile-width-only) {
+    &:nth-child(-n+7) {
+      display: none;
+    }
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(7) {
+      display: block;
+      margin: 0 3px 0 4px;
+    }
+
+    &--mobile {
+      margin: 0 6px;
+
+      span {
+        display: block;
+        margin: 0 3px;
+      }
+    }
+  }
+}
+
+.pagination--catalog {
+  padding: 51px 0 20px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+  @media (max-width: $tablet-width-only) {
+    padding: 49px 0 20px 0;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    justify-content: center;
+    padding: 21px 0 12px;
+  }
+
+
+  .pagination__link {
+    font-family: $font-basic;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 500;
+    color: $basic-black;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &--left {
+      cursor: default;
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: $mobile-width-only) {
+      display: none;
+    }
+  }
+
+  .pagination__list {
+    padding: 0 36px 0 0;
+
+    @media (max-width: $mobile-width-only) {
+      padding: 0;
+    }
+  }
+
+  .pagination__item {
+    margin: 0 5px 0 8px;
+    display: block;
+
+    @media (max-width: $mobile-width-only) {
+      margin: 0 12px 0 11px;
+    }
+  }
+}

@@ -6,17 +6,17 @@
 }
 
 @mixin wrapper {
+  max-width: $wrapper-max;
+  min-width: $desktop;
   margin: 0 auto;
 
-  @media (min-width: $mobile-width) {
-    width: auto;
+  @media (max-width: $tablet-width-only) {
+    max-width: $tablet-width-only;
+    min-width: $mobile-width-only;
   }
 
-  @media (min-width: $tablet-width) {
-    width: auto;
-  }
-
-  @media (min-width: $desktop-width) {
-    width: $desktop-width;
+  @media (max-width: $mobile-width-only) {
+    max-width: $mobile-width-only;
+    min-width: $wrapper-min;
   }
 }

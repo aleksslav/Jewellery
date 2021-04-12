@@ -13,7 +13,7 @@ body {
 
   display: grid;
   grid-template-rows: min-content 1fr min-content;
-  min-width: $mobile-width;
+  min-width: $wrapper-min;
   min-height: 100vh;
   margin: 0 auto;
   padding: 0;

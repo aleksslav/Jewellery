@@ -1,0 +1,136 @@
+.slider {
+  position: relative;
+  padding: 39px 6px 0 6px;
+  overflow: hidden;
+
+  @media (max-width: $tablet-width-only) {
+    padding: 42px 0 0 0;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    padding: 29px 0 0 0;
+  }
+}
+
+.slider__list {
+  @include reset-list;
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.slider__item {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 25%;
+  max-width: 25%;
+
+  @media (max-width: $tablet-width-only) {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  img {
+    width: 270px;
+    height: 284px;
+    margin-bottom: 17px;
+
+    @media (max-width: 1250px) {
+      width: 240px;
+    }
+
+    @media (max-width: $tablet-width-only) {
+      width: 324px;
+      height: 340px;
+      margin-bottom: 7px;
+    }
+
+    @media (max-width: $mobile-width-only) {
+      width: 130px;
+      height: 136px;
+      margin-bottom: 9px;
+    }
+  }
+
+  h3 {
+    @include reset-list;
+    font-family: $font-basic;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 500;
+    color: $basic-zeus;
+    margin: 0 0  4px 1px;
+
+    @media (max-width: $tablet-width-only) {
+      margin: 1px 0 1px 13px;
+    }
+
+    @media (max-width: $mobile-width-only) {
+      margin: 1px 0 1px 2px;
+    }
+  }
+
+  p {
+    @include reset-list;
+    font-family: $font-basic;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 700;
+    color: $basic-zeus;
+
+    @media (max-width: $tablet-width-only) {
+      margin: 13px 2px 0 0;
+    }
+
+
+    @media (max-width: $mobile-width-only) {
+      margin: 6px 0 0 0;
+    }
+  }
+}
+
+.slider--card {
+  padding: 40px 6px 0 6px;
+  overflow: hidden;
+
+  @media (max-width: $tablet-width-only) {
+    padding: 42px 0 0 0;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    padding: 29px 0 0 0;
+  }
+}
+
+.slider__item--card {
+  &:nth-child(4) {
+    margin-right: 18px;
+  }
+
+  @media (max-width: $tablet-width-only) {
+    &:nth-child(2) {
+      margin-right: 18px;
+    }
+
+    &:nth-child(4) {
+      margin-left: 0;
+    }
+  }
+
+  a {
+    h3 {
+      @media (max-width: $tablet-width-only) {
+        margin: 8px 2px 0 0;
+      }
+
+      @media (max-width: $mobile-width-only) {
+        margin: 0;
+      }
+    }
+
+    p {
+      @media (max-width: $tablet-width-only) {
+        margin: 7px 1px 0 0;
+      }
+    }
+  }
+}

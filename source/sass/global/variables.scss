@@ -1,13 +1,13 @@
 $font-basic: "Poppins", "Tahoma", "Geneva", sans-serif;
 $font-special: "Cormorant Garamond", "Palatino Linotype", "Book Antiqua", serif;
 
-$mobile-width: 320px;
-$tablet-width: 768px;
-$desktop-width: 1366px;
-
-
 $mobile-width-only: 767px;
 $tablet-width-only: 1023px;
+$desktop: 1024px;
+
+$wrapper: 1170px;
+$wrapper-min: 320px;
+$wrapper-max: 1365px;
 
 $basic-white: #ffffff;
 $basic-black: #000000;
@@ -16,4 +16,4 @@ $basic-muesli: #a87b62;
 $basic-bawn: #9b9997;
 $basic-desert-storm: #f6f5f4;
 $basic-mercury: #e5e5e5;
-
+$basic-pearl-bush: #f0eae4;

@@ -1,0 +1,171 @@
+.login {
+  width: 430px;
+  margin: 101px auto 0;
+  box-shadow: 0 4px 32px $basic-pearl-bush;
+  background-image: url("../img/bg/banner-img-login-desktop@1x.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: $basic-pearl-bush;
+  object-fit: cover;
+
+  @media (min-resolution: 2dppx) {
+    background-image: url("../img/bg/banner-img-login-desktop@2x.jpg");
+  }
+
+  @media (max-width: $tablet-width-only) {
+    background-image: url("../img/bg/banner-img-login-tablet@1x.jpg");
+
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("../img/bg/banner-img-login-tablet@2x.jpg");
+    }
+
+    width: 441px;
+    margin: 80px auto 0;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    background-image: url("../img/bg/banner-img-login-mobile@1xjpg");
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("../img/bg/banner-img-login-mobile@2x.jpg");
+    }
+
+    width: 270px;
+    margin: 50px auto 0;
+  }
+}
+
+.login__wrapper {
+  position: relative;
+  padding: 188px 45px 55px;
+  text-align: center;
+
+  @media (max-width: $tablet-width-only) {
+    padding: 188px 51px 55px;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    padding: 121px 15px 39px;
+  }
+
+  h2 {
+    @include reset-list;
+    font-family: $font-special;
+    font-size: 34px;
+    line-height: 44px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+
+    @media (max-width: $tablet-width-only) {
+      margin: 0 0 21px 0;
+    }
+
+    @media (max-width: $mobile-width-only) {
+      font-size: 24px;
+      line-height: 31px;
+      margin: 0 0 15px 0;
+    }
+  }
+}
+
+.login__form {
+  input {
+    width: 100%;
+    margin: 0 0 24px 0;
+    padding: 12px 0;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid $basic-zeus;
+    appearance: none;
+    background-color: transparent;
+
+    @media (max-width: $mobile-width-only) {
+      margin: 0 0 19px 0;
+    }
+
+    &::placeholder {
+      font-family: $font-basic;
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: 500;
+      color: $basic-bawn;
+    }
+
+    &:last-of-type {
+      margin-bottom: 5px;
+    }
+
+    &:focus {
+      outline-color: $basic-bawn;
+      background-color: $basic-white;
+    }
+  }
+
+  button {
+    margin-bottom: 15px;
+  }
+}
+
+.login__form-link {
+  font-family: $font-basic;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  margin-bottom: 45px;
+  margin-left: auto;
+  display: block;
+  text-align: right;
+  color: $basic-bawn;
+
+  @media (max-width: $mobile-width-only) {
+    margin: 0 0 36px 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: $basic-zeus;
+    outline-color: $basic-bawn;
+  }
+
+  &:active {
+    color: $basic-bawn;
+    outline-color: $basic-bawn;
+  }
+}
+
+.login__form-text {
+  @include reset-list;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 17.35% 0 15.59%;
+  font-family: $font-basic;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  color: $basic-bawn;
+
+  @media (max-width: $tablet-width-only) {
+    padding: 0 57px;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    padding: 0 8px;
+  }
+
+  a {
+    color: $basic-zeus;
+
+    &:hover,
+    &:focus {
+      color: $basic-bawn;
+      outline-color: $basic-bawn;
+    }
+
+    &:active {
+      color: $basic-bawn;
+      outline-color: $basic-bawn;
+    }
+  }
+}
