@@ -452,6 +452,11 @@
   display: flex;
   justify-content: center;
   fill: $basic-muesli;
+  cursor: default;
+
+  svg {
+    cursor: pointer;
+  }
 
   @media (max-width: $tablet-width-only) {
     @include reset-list;

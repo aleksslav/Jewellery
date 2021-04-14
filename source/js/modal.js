@@ -4,9 +4,9 @@
 
 (function () {
 
-  var modalLoginOpen = document.querySelector('.modal-open--login');
-  var modalLogin = document.querySelector('.modal--login');
-  var modalLoginClose = document.querySelector('.modal__close--login');
+  var modalLoginOpen = document.querySelector('.modal-open');
+  var modalLogin = document.querySelector('.modal');
+  var modalLoginClose = document.querySelector('.modal__close');
   var loginForm = document.querySelector('.login__form');
 
   var modalFilterOpen = document.querySelector('.catalog__filter-button');

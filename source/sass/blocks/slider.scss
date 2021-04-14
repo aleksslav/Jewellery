@@ -33,6 +33,7 @@
     width: 270px;
     height: 284px;
     margin-bottom: 17px;
+    background-color: $basic-pearl-bush;
 
     @media (max-width: 1250px) {
       width: 240px;
@@ -90,7 +91,7 @@
 
 .slider--card {
   padding: 40px 6px 0 6px;
-  overflow: hidden;
+  overflow-x: hidden;
 
   @media (max-width: $tablet-width-only) {
     padding: 42px 0 0 0;
@@ -102,20 +103,6 @@
 }
 
 .slider__item--card {
-  &:nth-child(4) {
-    margin-right: 18px;
-  }
-
-  @media (max-width: $tablet-width-only) {
-    &:nth-child(2) {
-      margin-right: 18px;
-    }
-
-    &:nth-child(4) {
-      margin-left: 0;
-    }
-  }
-
   a {
     h3 {
       @media (max-width: $tablet-width-only) {

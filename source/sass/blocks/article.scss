@@ -140,6 +140,8 @@
   }
 
   img {
+    background-color: $basic-pearl-bush;
+
     @media (max-width: $tablet-width-only) {
       width: 100%;
       height: 100%;
@@ -156,6 +158,10 @@
 .article__big {
   position: relative;
   grid-area: article__big;
+
+  img {
+    background-color: $basic-muesli;
+  }
 
   @media (max-width: $tablet-width-only) {
     display: grid;

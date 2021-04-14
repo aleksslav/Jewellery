@@ -28,7 +28,7 @@
   }
 
   @media (max-width: $mobile-width-only) {
-    background-image: url("../img/bg/banner-img-mobile@1xjpg");
+    background-image: url("../img/bg/banner-img-mobile@1x.jpg");
 
     @media (min-resolution: 2dppx) {
       background-image: url("../img/bg/banner-img-mobile@2x.jpg");
@@ -100,7 +100,7 @@
   }
 
   @media (max-width: $mobile-width-only) {
-    background-image: url("../img/bg/banner-img-catalog-mobile@1xjpg");
+    background-image: url("../img/bg/banner-img-catalog-mobile@1x.jpg");
 
     @media (min-resolution: 2dppx) {
       background-image: url("../img/bg/banner-img-catalog-mobile@2x.jpg");

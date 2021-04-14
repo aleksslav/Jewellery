@@ -87,6 +87,8 @@
     }
 
     img {
+      background-color: $basic-pearl-bush;
+
       @media (min-width: 340px) and (max-width: 767px) {
         height: auto;
       }
