@@ -75,9 +75,9 @@
       display: none;
     }
 
-    &:nth-child(1),
+    &:first-child,
     &:nth-child(2),
-    &:nth-child(7) {
+    &:last-child {
       display: block;
       margin: 0 3px 0 4px;
     }

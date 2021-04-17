@@ -39,7 +39,8 @@
 
 .page-header__wrapper {
   @include wrapper;
-  padding: 30px 20px 20px 20px;
+  position: relative;
+  padding: 30px 20px 9px 20px;
   display: flex;
   flex-direction: column;
 
@@ -54,18 +55,18 @@
 
 .page-header__logo-wrapper {
   position: relative;
-  padding: 0 5.84% 39px 5.84%;
+  padding: 0 5.84% 0 5.84%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+
 
   @media (max-width: $tablet-width-only) {
-    padding: 30px 2.84% 30px 2.84%;
+    padding: 17px 2.84% 30px 2.84%;
     flex-direction: column;
   }
 
   @media (max-width: $mobile-width-only) {
-    padding: 20px 0.1% 20px 0.1%;
+    padding: 8px 0.1% 20px 0.1%;
   }
 }
 
@@ -111,12 +112,14 @@
 
 .page-header--opened {
   @media (max-width: $tablet-width-only) {
-    height: 100vh;
+    height: 100%;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 988;
+    flex-direction: column;
+    justify-content: start;
     overflow: hidden auto;
 
     .page-header__wrapper {
@@ -157,6 +160,7 @@
 
       &:hover,
       &:focus {
+        stroke: $basic-white;
         opacity: 0.8;
       }
     }
@@ -171,7 +175,7 @@
 
 .page-header--opened.page-header {
   @media (max-width: $tablet-width-only) {
-    min-height: 778px;
+    height: 100vh;
     background-color: $basic-muesli;
   }
 }
@@ -193,6 +197,7 @@
 }
 
 .page-header--closed {
+
   @media (max-width: $tablet-width-only) {
     .page-header__wrapper {
       padding-top: 0;
@@ -224,36 +229,31 @@
   }
 }
 
-
 .page-header__login {
+  margin: 10px 0 0 20px;
   font-family: $font-basic;
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
-  flex-shrink: 1;
-  padding: 12px 0 0 30px;
 
   @media (max-width: $tablet-width-only) {
-    position: absolute;
-    padding: 0;
-    bottom: -495px;
-    left: 20px;
+    margin: 23px 0 0 0;
+    order: 4;
     font-size: 18px;
     line-height: 23px;
     color: $basic-white;
     opacity: 0.75;
-    outline-color: $basic-muesli;
-  }
 
-  @media (max-width: $mobile-width-only) {
-    bottom: -477px;
-    left: 1px;
+
+    @media (max-width: $mobile-width-only) {
+      margin: 14px 0 0 0;
+    }
   }
 }
 
 .page-header__cart {
   position: relative;
-  padding: 12px 0 0 33px;
+  margin: 12px 0 0 33px;
   font-family: $font-basic;
   font-weight: 500;
   font-size: 14px;
@@ -261,6 +261,11 @@
   display: flex;
   justify-content: flex-end;
   flex-shrink: 1;
+  align-self: start;
+
+  @media (max-width: $tablet-width-only) {
+    align-self: end;
+  }
 
   a {
     margin-right: 33px;
@@ -304,15 +309,17 @@
       top: 18px;
     }
   }
-
-  @media (max-width: $tablet-width-only) {
-    @include reset-list;
-  }
 }
 
 .page-header__nav {
+  margin: 40px auto 0 auto;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: $tablet-width-only) {
+    margin: 0;
+    order: 3;
+  }
 }
 
 .page-header__site-menu {
@@ -324,16 +331,17 @@
   flex-wrap: wrap;
 
   @media (max-width: $tablet-width-only) {
-    padding: 12px 0 0 21px;
+    padding: 43px 0 0 0;
     flex-direction: column;
   }
 
   @media (max-width: $mobile-width-only) {
-    padding: 15px 0 0 0;
+    padding: 34px 0 0 0;
   }
 
   li {
     margin-right: 35px;
+    margin-bottom: 10px;
 
     &:last-child {
       margin-right: 0;
@@ -353,7 +361,7 @@
 
     @media (max-width: $tablet-width-only) {
       display: block;
-      padding: 19px 0 0 21px;
+      padding: 19px 0 0 0;
 
       li {
         font-family: $font-basic;
@@ -380,8 +388,8 @@
 
   @media (max-width: $tablet-width-only) {
     padding: 42px 0 0 0;
-    order: 3;
     position: relative;
+    order: 2;
 
     label {
       position: absolute;
@@ -401,7 +409,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
-    color: $basic-bawn;
+    color: $basic-zeus;
     border: none;
     border-radius: 0;
     outline: none;
@@ -447,12 +455,12 @@
 }
 
 .page-header__logo {
-  padding-right: 6.8%;
-  flex-grow: 1;
+  position: relative;
   display: flex;
   justify-content: center;
   fill: $basic-muesli;
   cursor: default;
+  margin: 0 auto 0 27.8%;
 
   svg {
     cursor: pointer;
@@ -545,6 +553,7 @@
     }
 
     .page-header__cart {
+
       svg {
         @media (max-width: $tablet-width-only) {
           top: 25px;
@@ -570,18 +579,23 @@
     }
 
     .page-header__cart {
-      padding: 12px 0 0 38px;
-
       svg {
         @media (max-width: $tablet-width-only) {
-          top: 35px;
+          top: 24px;
         }
 
         @media (max-width: $mobile-width-only) {
-          top: 29px;
+          top: 18px;
           right: -2px;
         }
       }
     }
+  }
+}
+
+
+.page-header__logo--main {
+  svg {
+    cursor: unset;
   }
 }

@@ -125,7 +125,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
-    color: $basic-bawn;
+    color: $basic-white;
     border: none;
     border-radius: 0;
     outline: none;
@@ -198,10 +198,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
-  @media (max-width: 1330px) {
-    justify-content: space-around;
-  }
 
   @media (max-width: $tablet-width-only) {
     justify-content: space-between;
