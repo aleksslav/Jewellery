@@ -1,122 +1,187 @@
 'use strict';
+    
+(() => {
 
-// слайдер
+    /* слайдер */
+    const PictureCount = {
+      DESKTOP: 4,
+      TABLET: 2
+    };
 
-(function () {
+    const MaxWidth = {
+      TABLET: 1023,
+      MOBILE: 767
+    };
 
-  var PictureCount = {
-    DESKTOP: 4,
-    TABLET: 2,
-  };
+    const tablet = window.matchMedia(`(max-width: ${MaxWidth.TABLET}px)`);
+    const mobile = window.matchMedia(`(max-width: ${MaxWidth.MOBILE}px)`);
 
-  var mobile = window.matchMedia('(max-width: 767px)');
-  var tablet = window.matchMedia('(max-width: 1023px)');
+    const list = document.querySelector(`.slider__list--js`);
+    const items = document.querySelectorAll(`.slider__item--js`);
+    const buttonLeft = document.querySelector(`.new-items__btn--prev`);
+    const buttonRight = document.querySelector(`.new-items__btn--next`);
 
-  var list = document.querySelector('.slider__list');
-  var items = document.querySelectorAll('.slider__item');
-  var buttonLeft = document.querySelector('.new-items__btn--prev');
-  var buttonRight = document.querySelector('.new-items__btn--next');
+/* вывод количества страниц */
+const paginationList = document.querySelector(`.pagination`);
+let deleter = 4;
 
-  var wrapperWidth; // вычисляемая под конкретное разрешение ширина контейнера
-  var itemWidth; // вычисляемая под конкретное разрешение ширина 1 слайда
+if (tablet.matches || mobile.matches) {
+  deleter = 2;
+};
 
-  var positionLeftItem = 0;
-  var transform = 0;
+for (let i = 1; i <= items.length / deleter; i++) {
+  let li = document.createElement(`li`);
+  li.classList.add(`pagination__item`);
+  li.textContent= i;
+  paginationList.appendChild(li);
+};
 
-  var step; // шаг
-  var itemsArray = [];
+let pageNumbers = document.querySelectorAll(`.pagination__item`);
 
-  var startX = 0; // для мобильного тача - начало перемещения
+let li = document.createElement(`li`);
+li.classList.add(`pagination__item`, `pagination__item--span`);
+li.textContent = `of`;
+paginationList.appendChild(li);
 
-  if (items) {
-    items.forEach(function (item, index) {
-      itemsArray.push({item: item, position: index, transform: 0});
-    });
+li = document.createElement(`li`);
+li.classList.add(`pagination__item`, `pagination__item--last-child`);
+li.textContent = pageNumbers.length;
+paginationList.appendChild(li);
+
+for (let i = 0; i < pageNumbers.length; i++) {
+  pageNumbers[0].classList.add(`pagination__item--active`);
+};
+
+let index = 0;
+
+const updateSelection = () => {
+  let active = document.querySelector(`li.pagination__item--active`);
+  if (active) {
+    active.classList.remove(`pagination__item--active`);
+  }
+  pageNumbers[index].classList.add(`pagination__item--active`);
+};
+
+const nextElem = () => {
+  index = (index + 1) % pageNumbers.length;
+  updateSelection();
+  if (index === pageNumbers.length - 1) {
+    buttonRight.removeEventListener('click', nextElem);
+  }
+};
+
+const previousElem = () => {
+  index = (index + pageNumbers.length - 1) % pageNumbers.length;
+  updateSelection();
+  if (index === 0) {
+    buttonLeft.removeEventListener('click', previousElem);
+  }
+}
+
+let wrapperWidth; /* вычисляемая под конкретное разрешение ширина контейнера */
+let itemWidth; /* вычисляемая под конкретное разрешение ширина 1 слайда */
+let itemMarginRight; /* вычисляемый margin */
+
+let positionLeftItem = 0;
+let transform = 0;
+
+let step; /* шаг */
+let itemsArray = [];
+let startX = 0; /* для мобильного тача - начало перемещения */
+
+if (items) {
+  items.forEach((item, index) => {
+    itemsArray.push({item: item, position: index, transform: 0});
+  });
+}
+
+const position = {
+  getMin: 0,
+  getMax: itemsArray.length - 1
+};
+
+let count; /* временная переменная для определения количества изображений на адаптиве */
+
+
+const changeSizeHandler = (evt) => {
+
+  if (evt.matches) {
+    count = PictureCount.TABLET;
+  } else {
+    count = PictureCount.DESKTOP;
   }
 
-  var position = {
-    getMin: 0,
-    getMax: itemsArray.length - 1,
-  };
+  if (list && items) {
+    wrapperWidth = parseFloat(getComputedStyle(list).width);
+    itemWidth = parseFloat(getComputedStyle(items[0]).width);
+    itemMarginRight = parseInt(getComputedStyle(items[0]).marginRight);
 
-  var count; // временная переменная для определения количества изображений на адаптиве
+    step = (itemWidth + itemMarginRight) / wrapperWidth * 100;
 
-  var changeSizeHandler = function (evt) {
+    positionLeftItem = 0;
+    transform = 0;
+    list.style.transform = `translateX(` + transform + `%)`;
+  }
+};
 
-    if (evt.matches) {
-      count = PictureCount.TABLET;
-    } else {
-      count = PictureCount.DESKTOP;
-    }
+const setMobileHandler = (evt) => {
+  if (evt.matches) {
+    setMobileTouch();
+  }
+};
 
-    if (list && items) {
-      wrapperWidth = parseFloat(getComputedStyle(list).width);
-      itemWidth = parseFloat(getComputedStyle(items[0]).width);
-
-      step = itemWidth / wrapperWidth * 100;
-
-      positionLeftItem = 0;
-      transform = 0;
-      list.style.transform = 'translateX(' + transform + '%)';
-    }
-  };
-
-  var setMobileHandler = function (evt) {
-    if (evt.matches) {
-      setMobileTouch();
-    }
-  };
-
-  var buttonRightClickHandler = function () {
-    if (positionLeftItem + count >= position.getMax) {
-      return;
-    }
-
-    positionLeftItem = positionLeftItem + count;
-
-    transform -= step * count;
-    list.style.transform = 'translateX(' + transform + '%)';
-  };
-
-  var buttonLeftClickHandler = function () {
-    if (positionLeftItem <= position.getMin) {
-      return;
-    }
-
-    positionLeftItem = positionLeftItem - count;
-    transform += step * count;
-
-    list.style.transform = 'translateX(' + transform + '%)';
-  };
-
-  var setMobileTouch = function () {
-    if (list) {
-      list.addEventListener('touchstart', function (evt) {
-        startX = evt.changedTouches[0].clientX;
-      });
-
-      list.addEventListener('touchend', function (evt) {
-        var endX = evt.changedTouches[0].clientX;
-        var deltaX = endX - startX;
-
-        if (deltaX > 50) {
-          buttonRightClickHandler();
-        } else if (deltaX < -50) {
-          buttonLeftClickHandler();
-        }
-      });
-    }
-  };
-
-  if (buttonLeft && buttonRight) {
-    buttonRight.addEventListener('click', buttonRightClickHandler);
-    buttonLeft.addEventListener('click', buttonLeftClickHandler);
+const buttonRightClickHandler = () => {
+  if (positionLeftItem + count >= position.getMax) {
+    return;
   }
 
-  tablet.addListener(changeSizeHandler);
-  changeSizeHandler(tablet);
+  positionLeftItem = positionLeftItem + count;
 
-  mobile.addListener(setMobileHandler);
-  setMobileHandler(mobile);
+  transform -= step * count;
+  list.style.transform = `translateX(` + transform + `%)`;
+  nextElem();
+};
 
-})();
+const buttonLeftClickHandler = () => {
+  if (positionLeftItem <= position.getMin) {
+    return;
+  }
+
+  positionLeftItem = positionLeftItem - count;
+  transform += step * count;
+
+  list.style.transform = `translateX(` + transform + `%)`;
+  previousElem();
+};
+
+const setMobileTouch = () => {
+  if (list) {
+    list.addEventListener(`touchstart`, (evt) => {
+      startX = evt.changedTouches[0].clientX;
+    }, {passive: true});
+
+    list.addEventListener(`touchend`, (evt) => {
+      let endX = evt.changedTouches[0].clientX;
+      let deltaX = endX - startX;
+
+      if (deltaX > 50) {
+        buttonRightClickHandler();
+      } else if (deltaX < -50) {
+        buttonLeftClickHandler();
+      }
+    }, {passive: true});
+  }
+};
+
+if (buttonLeft && buttonRight) {
+  buttonRight.addEventListener(`click`, buttonRightClickHandler);
+  buttonLeft.addEventListener(`click`, buttonLeftClickHandler);
+}
+
+tablet.addListener(changeSizeHandler);
+changeSizeHandler(tablet);
+
+mobile.addListener(setMobileHandler);
+setMobileHandler(mobile);
+
+  })();

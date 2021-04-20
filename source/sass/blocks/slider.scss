@@ -16,6 +16,14 @@
   @include reset-list;
   display: flex;
   transition: transform 0.6s ease;
+
+  @media (max-width: $tablet-width-only) {
+    width: 91.9vw;
+  }
+
+  @media (max-width: $mobile-width-only) {
+    width: 100%;
+  }
 }
 
 .slider__item {
@@ -94,7 +102,7 @@
   overflow-x: hidden;
 
   @media (max-width: $tablet-width-only) {
-    padding: 42px 0 0 0;
+    padding: 38px 0 0 0;
   }
 
   @media (max-width: $mobile-width-only) {

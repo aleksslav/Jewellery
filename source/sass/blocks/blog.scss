@@ -11,13 +11,13 @@
 
 .blog__wrapper {
   @include wrapper;
-  padding: 30px 0 20px 0;
+  padding: 30px 0 19px 0;
   align-items: center;
   display: flex;
   flex-direction: column;
 
   @media (max-width: $tablet-width-only) {
-    padding: 26px 0 20px 0;
+    padding: 23px 0 20px 0;
   }
 
   @media (max-width: $mobile-width-only) {
@@ -38,24 +38,24 @@
       margin: 0 0 19px 0;
     }
   }
+}
 
-  a {
-    @include reset-list;
-    padding: 0 0 2px 0;
-    font-family: $font-basic;
-    font-size: 16px;
-    line-height: 21px;
-    font-weight: 500;
-    color: $basic-zeus;
-    border-bottom: 1px solid $basic-muesli;
+.blog__link {
+  @include reset-list;
+  padding: 0 0 3px 0;
+  font-family: $font-basic;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 500;
+  color: $basic-zeus;
+  border-bottom: 1px solid $basic-muesli;
 
-    &:hover,
-    &:focus {
-      color: $basic-muesli;
-    }
+  &:hover,
+  &:focus {
+    color: $basic-muesli;
+  }
 
-    @media (max-width: $tablet-width-only) {
-      padding: 0 0 4px 0;
-    }
+  @media (max-width: $tablet-width-only) {
+    padding: 0 0 4px 0;
   }
 }
