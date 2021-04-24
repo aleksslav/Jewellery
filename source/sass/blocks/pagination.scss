@@ -30,6 +30,7 @@
   line-height: 21px;  
   text-align: center;
   color: $basic-zeus;
+  cursor: pointer;
 
   @media (max-width: $tablet-width-only) {
     padding: 6px 6.5px;
